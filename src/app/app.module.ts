@@ -1,7 +1,9 @@
 import { environment } from "../environments/environment";
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
+import { CustomFormsModule } from "ng2-validation";
 
 import { AngularFireModule } from "angularfire2";
 import { AngularFireDatabaseModule } from "angularfire2/database";
@@ -22,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AuthGuard } from "./services/auth-guard.service";
 import { AdminAuthGuard } from "./services/admin-auth-guard.service";
+import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { AdminAuthGuard } from "./services/admin-auth-guard.service";
     AdminProductsComponent,
     AdminOrdersComponent,
     LoginComponent,
+    ProductFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { AdminAuthGuard } from "./services/admin-auth-guard.service";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    CustomFormsModule
   ],
   providers: [AuthGuard, AdminAuthGuard],
   bootstrap: [AppComponent]
